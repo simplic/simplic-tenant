@@ -42,8 +42,16 @@ namespace Simplic.Tenant.Service
 
             // Find group
             var existingGroups = GetGroupsBySubOrganizationCount(organizationTenants.Count).ToList();
-            foreach (var tenant in organizationTenants)
-                existingGroups = existingGroups.Where(x => x.SubOrganizations.Any(y => y == tenant.Id)).ToList();
+
+            if (existingGroups.Any())
+            {
+                foreach (var tenant in organizationTenants)
+                {
+                    existingGroups = existingGroups.Where(x => x.SubOrganizations.Any(y => y == tenant.Id)).ToList();
+                    if (!existingGroups.Any())
+                        break;
+                }
+            }
 
             // Return matching group
             if (existingGroups.Count > 0)
