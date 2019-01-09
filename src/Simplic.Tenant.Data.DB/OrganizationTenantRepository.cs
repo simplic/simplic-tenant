@@ -2,6 +2,7 @@
 using Simplic.Data.Sql;
 using Simplic.Sql;
 using System;
+using System.Collections.Generic;
 
 namespace Simplic.Tenant.Data.DB
 {
@@ -30,6 +31,13 @@ namespace Simplic.Tenant.Data.DB
         {
             return obj.Id;
         }
+
+        /// <summary>
+        /// Gets all groups which have n sub items/tenants
+        /// </summary>
+        /// <param name="count">Sub tenant count</param>
+        /// <returns>Enumerable of organization tenants</returns>
+        public IEnumerable<OrganizationTenant> GetGroupsBySubOrganizationCount(int count) => GetAllByColumn("SubOrganizationCount", count);
 
         /// <summary>
         /// Gets the primary columns (Id)

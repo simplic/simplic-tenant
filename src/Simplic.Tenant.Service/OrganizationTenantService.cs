@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Simplic.Tenant.Service
 {
@@ -25,6 +26,46 @@ namespace Simplic.Tenant.Service
         /// <param name="obj">Object instance</param>
         /// <returns>True if successfuk</returns>
         public bool Delete(OrganizationTenant obj) => tenantRepository.Delete(obj);
+
+        /// <summary>
+        /// Create or get tenant by tenant group
+        /// </summary>
+        /// <param name="organizationTenants">List of organization tenants</param>
+        /// <returns>New organization tenant id</returns>
+        public Guid CreateOrGetGroup(IList<OrganizationTenant> organizationTenants)
+        {
+            if (organizationTenants.Count == 0)
+                return Guid.Empty;
+
+            if (organizationTenants.Count == 1)
+                return organizationTenants[0].Id;
+
+            // Find group
+            var existingGroups = GetGroupsBySubOrganizationCount(organizationTenants.Count).ToList();
+            foreach (var tenant in organizationTenants)
+                existingGroups = existingGroups.Where(x => x.SubOrganizations.Any(y => y == tenant.Id)).ToList();
+
+            // Return matching group
+            if (existingGroups.Count > 0)
+                return existingGroups[0].Id;
+
+            var newOrganizationTenantGroup = new OrganizationTenant
+            {
+                SubOrganizations = organizationTenants.Select(x => x.Id).ToList()
+            };
+
+            // Save new group
+            Save(newOrganizationTenantGroup);
+
+            return newOrganizationTenantGroup.Id;
+        }
+
+        /// <summary>
+        /// Gets all groups which have n sub items/tenants
+        /// </summary>
+        /// <param name="count">Sub tenant count</param>
+        /// <returns>Enumerable of organization tenants</returns>
+        public IEnumerable<OrganizationTenant> GetGroupsBySubOrganizationCount(int count) => tenantRepository.GetGroupsBySubOrganizationCount(count);
 
         /// <summary>
         /// Delete organization tenant by id
