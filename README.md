@@ -7,3 +7,7 @@ The core elements are:
 
 * OrganizationTenant - Represents the tenant information of an organization
 * IOrganizationTenantService - Allows tenant operations
+
+## Unit tests
+
+After the tenant system is changed, the unit tests must be executed
