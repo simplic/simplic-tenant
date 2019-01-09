@@ -51,8 +51,13 @@ namespace Simplic.Tenant.Service
 
             var newOrganizationTenantGroup = new OrganizationTenant
             {
+                IsActive = true,
                 SubOrganizations = organizationTenants.Select(x => x.Id).ToList()
             };
+
+            // Set name and matchcode
+            newOrganizationTenantGroup.Name = string.Join(";", organizationTenants.Select(x => x.Name).OrderBy(x => x));
+            newOrganizationTenantGroup.MatchCode = string.Join(";", organizationTenants.Select(x => x.MatchCode).OrderBy(x => x));
 
             // Save new group
             Save(newOrganizationTenantGroup);
