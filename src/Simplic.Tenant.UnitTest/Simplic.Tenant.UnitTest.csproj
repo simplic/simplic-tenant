@@ -67,6 +67,7 @@
     <Compile Include="NameTest.cs" />
     <Compile Include="GroupTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TenantEqualTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

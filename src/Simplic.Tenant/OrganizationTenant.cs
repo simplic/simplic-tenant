@@ -50,6 +50,28 @@ namespace Simplic.Tenant
         public override int GetHashCode() => Id.GetHashCode();
 
         /// <summary>
+        /// != Operator
+        /// </summary>
+        /// <param name="obj1"></param>
+        /// <param name="obj2"></param>
+        /// <returns></returns>
+        public static bool operator != (OrganizationTenant obj1, OrganizationTenant obj2)
+        {
+            return !obj1.Equals(obj2);
+        }
+
+        /// <summary>
+        /// == Operator
+        /// </summary>
+        /// <param name="obj1"></param>
+        /// <param name="obj2"></param>
+        /// <returns></returns>
+        public static bool operator == (OrganizationTenant obj1, OrganizationTenant obj2)
+        {
+            return obj1.Equals(obj2);
+        }
+
+        /// <summary>
         /// Compare by id
         /// </summary>
         /// <param name="obj">Organization tenant</param>
