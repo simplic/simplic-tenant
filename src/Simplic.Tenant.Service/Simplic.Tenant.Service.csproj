@@ -55,5 +55,9 @@
       <Version>1.5.118.1029</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="package.bat" />
+    <None Include="Simplic.Tenant.Service.nuspec" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

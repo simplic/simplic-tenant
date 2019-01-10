@@ -47,6 +47,6 @@ namespace Simplic.Tenant.Data.DB
         /// <summary>
         /// Gets the tenant organization table (TenantOrganization)
         /// </summary>
-        public override string TableName => "TenantOrganization";
+        public override string TableName => "Tenant_Organization";
     }
 }
