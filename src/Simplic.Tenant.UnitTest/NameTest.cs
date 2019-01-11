@@ -14,21 +14,21 @@ namespace Simplic.Tenant.UnitTest
         public NameTest()
         {
             unityContainer = new UnityContainer();
-            unityContainer.RegisterType<IOrganizationTenantRepository, OrganizationTenantRepository>();
-            unityContainer.RegisterType<IOrganizationTenantService, OrganizationTenantService>();
+            unityContainer.RegisterType<IOrganizationRepository, OrganizationRepository>();
+            unityContainer.RegisterType<IOrganizationService, OrganizationService>();
         }
 
         [TestMethod]
         public void NameOrderTest()
         {
-            var tenants = new OrganizationTenant[]
+            var tenants = new Organization[]
             {
-                new OrganizationTenant { Name = "Tenant 1", MatchCode = "T1" },
-                new OrganizationTenant { Name = "Tenant 2", MatchCode = "T2" },
-                new OrganizationTenant { Name = "Tenant 3", MatchCode = "T3" }
+                new Organization { Name = "Tenant 1", MatchCode = "T1" },
+                new Organization { Name = "Tenant 2", MatchCode = "T2" },
+                new Organization { Name = "Tenant 3", MatchCode = "T3" }
             };
 
-            var service = unityContainer.Resolve<IOrganizationTenantService>();
+            var service = unityContainer.Resolve<IOrganizationService>();
 
             var id = service.CreateOrGetGroup(tenants);
             var group = service.Get(id);
@@ -39,14 +39,14 @@ namespace Simplic.Tenant.UnitTest
         [TestMethod]
         public void MatchCodeOrderTest()
         {
-            var tenants = new OrganizationTenant[]
+            var tenants = new Organization[]
             {
-                new OrganizationTenant { Name = "Tenant 1", MatchCode = "T1" },
-                new OrganizationTenant { Name = "Tenant 2", MatchCode = "T2" },
-                new OrganizationTenant { Name = "Tenant 3", MatchCode = "T3" }
+                new Organization { Name = "Tenant 1", MatchCode = "T1" },
+                new Organization { Name = "Tenant 2", MatchCode = "T2" },
+                new Organization { Name = "Tenant 3", MatchCode = "T3" }
             };
 
-            var service = unityContainer.Resolve<IOrganizationTenantService>();
+            var service = unityContainer.Resolve<IOrganizationService>();
 
             var id = service.CreateOrGetGroup(tenants);
             var group = service.Get(id);

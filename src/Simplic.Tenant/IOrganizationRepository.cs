@@ -5,15 +5,15 @@ using System.Collections.Generic;
 namespace Simplic.Tenant
 {
     /// <summary>
-    /// Organization tenant repository definition
+    /// organization repository definition
     /// </summary>
-    public interface IOrganizationTenantRepository : IRepositoryBase<Guid, OrganizationTenant>
+    public interface IOrganizationRepository : IRepositoryBase<Guid, Organization>
     {
         /// <summary>
         /// Gets all groups which have n sub items/tenants
         /// </summary>
         /// <param name="count">Sub tenant count</param>
-        /// <returns>Enumerable of organization tenants</returns>
-        IEnumerable<OrganizationTenant> GetGroupsBySubOrganizationCount(int count);
+        /// <returns>Enumerable of organizations</returns>
+        IEnumerable<Organization> GetGroupsBySubOrganizationCount(int count);
     }
 }

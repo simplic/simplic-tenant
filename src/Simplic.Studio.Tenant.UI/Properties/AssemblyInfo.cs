@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Windows.Markup;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Simplic.Tenant.Service")]
+[assembly: AssemblyTitle("Simplic.Studio.Tenant.UI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Simplic.Tenant.Service")]
+[assembly: AssemblyProduct("Simplic.Studio.Tenant.UI")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +21,13 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("348be8e9-7c3f-443e-be85-d9f08c7f39c7")]
+[assembly: Guid("c514bf67-c266-4fae-abd5-66bb96deb1bd")]
+
+
+[assembly: XmlnsDefinition("http://schemas.simplic-systems.com/2016/xaml/presentation", "Simplic.Studio.Tenant.UI")]
+
+[assembly: XmlnsDefinition("urn:simplic", "Simplic.Studio.Tenant.UI")]
+
 
 // Version information for an assembly consists of the following four values:
 //

@@ -14,15 +14,15 @@ namespace Simplic.Tenant.UnitTest
         public GroupTest()
         {
             unityContainer = new UnityContainer();
-            unityContainer.RegisterType<IOrganizationTenantRepository, OrganizationTenantRepository>();
-            unityContainer.RegisterType<IOrganizationTenantService, OrganizationTenantService>();
+            unityContainer.RegisterType<IOrganizationRepository, OrganizationRepository>();
+            unityContainer.RegisterType<IOrganizationService, OrganizationService>();
         }
 
         [TestMethod]
         public void Group_Empty()
         {
-            var service = unityContainer.Resolve<IOrganizationTenantService>();
-            var id = service.CreateOrGetGroup(new OrganizationTenant[] { });
+            var service = unityContainer.Resolve<IOrganizationService>();
+            var id = service.CreateOrGetGroup(new Organization[] { });
 
             Assert.AreEqual(id, Guid.Empty);
         }
@@ -32,10 +32,10 @@ namespace Simplic.Tenant.UnitTest
         {
             var tenantId = Guid.NewGuid();
 
-            var service = unityContainer.Resolve<IOrganizationTenantService>();
-            var id = service.CreateOrGetGroup(new OrganizationTenant[] 
+            var service = unityContainer.Resolve<IOrganizationService>();
+            var id = service.CreateOrGetGroup(new Organization[] 
             {
-                new OrganizationTenant { Id = tenantId }
+                new Organization { Id = tenantId }
             });
 
             Assert.AreEqual(id, tenantId);
@@ -44,14 +44,14 @@ namespace Simplic.Tenant.UnitTest
         [TestMethod]
         public void Group_3Items()
         {
-            var tenants = new OrganizationTenant[]
+            var tenants = new Organization[]
             {
-                new OrganizationTenant { Name = "Tenant 1", MatchCode = "T1" },
-                new OrganizationTenant { Name = "Tenant 2", MatchCode = "T2" },
-                new OrganizationTenant { Name = "Tenant 3", MatchCode = "T3" }
+                new Organization { Name = "Tenant 1", MatchCode = "T1" },
+                new Organization { Name = "Tenant 2", MatchCode = "T2" },
+                new Organization { Name = "Tenant 3", MatchCode = "T3" }
             };
 
-            var service = unityContainer.Resolve<IOrganizationTenantService>();
+            var service = unityContainer.Resolve<IOrganizationService>();
 
             var id1 = service.CreateOrGetGroup(tenants);
             var id2 = service.CreateOrGetGroup(tenants);
@@ -62,21 +62,21 @@ namespace Simplic.Tenant.UnitTest
         [TestMethod]
         public void Group_3_3_Items_Unequal()
         {
-            var tenants1 = new OrganizationTenant[]
+            var tenants1 = new Organization[]
             {
-                new OrganizationTenant { Name = "Tenant 1", MatchCode = "T1" },
-                new OrganizationTenant { Name = "Tenant 2", MatchCode = "T2" },
-                new OrganizationTenant { Name = "Tenant 3", MatchCode = "T3" }
+                new Organization { Name = "Tenant 1", MatchCode = "T1" },
+                new Organization { Name = "Tenant 2", MatchCode = "T2" },
+                new Organization { Name = "Tenant 3", MatchCode = "T3" }
             };
 
-            var tenants2 = new OrganizationTenant[]
+            var tenants2 = new Organization[]
             {
-                new OrganizationTenant { Name = "Tenant 4", MatchCode = "T4" },
-                new OrganizationTenant { Name = "Tenant 5", MatchCode = "T5" },
-                new OrganizationTenant { Name = "Tenant 6", MatchCode = "T6" }
+                new Organization { Name = "Tenant 4", MatchCode = "T4" },
+                new Organization { Name = "Tenant 5", MatchCode = "T5" },
+                new Organization { Name = "Tenant 6", MatchCode = "T6" }
             };
 
-            var service = unityContainer.Resolve<IOrganizationTenantService>();
+            var service = unityContainer.Resolve<IOrganizationService>();
 
             var id1 = service.CreateOrGetGroup(tenants1);
             var id2 = service.CreateOrGetGroup(tenants2);
@@ -87,19 +87,19 @@ namespace Simplic.Tenant.UnitTest
         [TestMethod]
         public void Group_3_2_Items_Unequal()
         {
-            var tenants1 = new OrganizationTenant[]
+            var tenants1 = new Organization[]
             {
-                new OrganizationTenant { Name = "Tenant 1", MatchCode = "T1" },
-                new OrganizationTenant { Name = "Tenant 2", MatchCode = "T2" },
-                new OrganizationTenant { Name = "Tenant 3", MatchCode = "T3" }
+                new Organization { Name = "Tenant 1", MatchCode = "T1" },
+                new Organization { Name = "Tenant 2", MatchCode = "T2" },
+                new Organization { Name = "Tenant 3", MatchCode = "T3" }
             };
 
-            var tenants2 = new OrganizationTenant[]
+            var tenants2 = new Organization[]
             {
                 tenants1[0], tenants1[1]
             };
 
-            var service = unityContainer.Resolve<IOrganizationTenantService>();
+            var service = unityContainer.Resolve<IOrganizationService>();
 
             var id1 = service.CreateOrGetGroup(tenants1);
             var id2 = service.CreateOrGetGroup(tenants2);
@@ -110,19 +110,19 @@ namespace Simplic.Tenant.UnitTest
         [TestMethod]
         public void Group_2_3_Items_Unequal()
         {
-            var tenants1 = new OrganizationTenant[]
+            var tenants1 = new Organization[]
             {
-                new OrganizationTenant { Name = "Tenant 1", MatchCode = "T1" },
-                new OrganizationTenant { Name = "Tenant 2", MatchCode = "T2" },
-                new OrganizationTenant { Name = "Tenant 3", MatchCode = "T3" }
+                new Organization { Name = "Tenant 1", MatchCode = "T1" },
+                new Organization { Name = "Tenant 2", MatchCode = "T2" },
+                new Organization { Name = "Tenant 3", MatchCode = "T3" }
             };
 
-            var tenants2 = new OrganizationTenant[]
+            var tenants2 = new Organization[]
             {
                 tenants1[0], tenants1[1]
             };
 
-            var service = unityContainer.Resolve<IOrganizationTenantService>();
+            var service = unityContainer.Resolve<IOrganizationService>();
 
             // 2 than 1 (2 -> 3)
             var id2 = service.CreateOrGetGroup(tenants2);

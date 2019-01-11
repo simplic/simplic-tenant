@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IOrganizationTenantRepository.cs" />
-    <Compile Include="IOrganizationTenantService.cs" />
-    <Compile Include="OrganizationTenant.cs" />
+    <Compile Include="IOrganizationRepository.cs" />
+    <Compile Include="IOrganizationService.cs" />
+    <Compile Include="Organization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,17 +4,17 @@ using System.Collections.Generic;
 namespace Simplic.Tenant
 {
     /// <summary>
-    /// Represents an organization tenant
+    /// Represents an organization
     /// </summary>
-    public class OrganizationTenant : IEquatable<OrganizationTenant>
+    public class Organization : IEquatable<Organization>
     {
         /// <summary>
-        /// Gets or sets the organization tenant id
+        /// Gets or sets the organization id
         /// </summary>
         public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
-        /// Gets or sets the organization tenant name
+        /// Gets or sets the organization name
         /// </summary>
         public string Name { get; set; }
 
@@ -24,7 +24,7 @@ namespace Simplic.Tenant
         public string MatchCode { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the organization tenant is selectable
+        /// Gets or sets whether the organization is selectable
         /// </summary>
         public bool IsActive { get; set; }
 
@@ -34,12 +34,12 @@ namespace Simplic.Tenant
         public int SubOrganizationCount { get => SubOrganizations.Count; }
 
         /// <summary>
-        /// Gets or sets all sub items. Only available if this organization tenant is a group of multiple organization tenants
+        /// Gets or sets all sub items. Only available if this organization is a group of multiple organizations
         /// </summary>
         public IList<Guid> SubOrganizations { get; set; } = new List<Guid>();
 
         /// <summary>
-        /// Gets or sets whether the organization tenant is a group
+        /// Gets or sets whether the organization is a group
         /// </summary>
         public bool IsGroup { get => SubOrganizationCount > 0; }
 
@@ -55,9 +55,9 @@ namespace Simplic.Tenant
         /// <param name="obj1"></param>
         /// <param name="obj2"></param>
         /// <returns></returns>
-        public static bool operator != (OrganizationTenant obj1, OrganizationTenant obj2)
+        public static bool operator !=(Organization obj1, Organization obj2)
         {
-            return !obj1.Equals(obj2);
+            return obj1?.Id != obj2?.Id;
         }
 
         /// <summary>
@@ -66,23 +66,23 @@ namespace Simplic.Tenant
         /// <param name="obj1"></param>
         /// <param name="obj2"></param>
         /// <returns></returns>
-        public static bool operator == (OrganizationTenant obj1, OrganizationTenant obj2)
+        public static bool operator ==(Organization obj1, Organization obj2)
         {
-            return obj1.Equals(obj2);
+            return obj1?.Id == obj2?.Id;
         }
 
         /// <summary>
         /// Compare by id
         /// </summary>
-        /// <param name="obj">Organization tenant</param>
+        /// <param name="obj">organization</param>
         /// <returns>True if equal</returns>
         public override bool Equals(object obj)
         {
             if (obj == null)
                 return false;
 
-            if (obj is OrganizationTenant organizationTenant)
-                return organizationTenant.Id == Id;
+            if (obj is Organization organization)
+                return organization.Id == Id;
 
             return false;
         }
@@ -90,9 +90,9 @@ namespace Simplic.Tenant
         /// <summary>
         /// Compare by id
         /// </summary>
-        /// <param name="other">Other organization tenant</param>
+        /// <param name="other">Other organization</param>
         /// <returns>True if equal</returns>
-        public bool Equals(OrganizationTenant other)
+        public bool Equals(Organization other)
         {
             return other?.Id == Id;
         }

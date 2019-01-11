@@ -7,9 +7,9 @@ using System.Collections.Generic;
 namespace Simplic.Tenant.Data.DB
 {
     /// <summary>
-    /// Tenant repository with cache
+    /// Organization repository with cache
     /// </summary>
-    public class OrganizationTenantRepository : SqlRepositoryBase<Guid, OrganizationTenant>, IOrganizationTenantRepository
+    public class OrganizationRepository : SqlRepositoryBase<Guid, Organization>, IOrganizationRepository
     {
         /// <summary>
         /// Initialize repository
@@ -17,27 +17,27 @@ namespace Simplic.Tenant.Data.DB
         /// <param name="sqlService">Sql service</param>
         /// <param name="sqlColumnService">Column service</param>
         /// <param name="cacheService">Cache service</param>
-        public OrganizationTenantRepository(ISqlService sqlService, ISqlColumnService sqlColumnService, ICacheService cacheService) : base(sqlService, sqlColumnService, cacheService)
+        public OrganizationRepository(ISqlService sqlService, ISqlColumnService sqlColumnService, ICacheService cacheService) : base(sqlService, sqlColumnService, cacheService)
         {
             UseCache = true;
         }
 
         /// <summary>
-        /// Gets the id of a tenant organization
+        /// Gets the id of a organization organization
         /// </summary>
         /// <param name="obj">Organization id</param>
         /// <returns>Unique id</returns>
-        public override Guid GetId(OrganizationTenant obj)
+        public override Guid GetId(Organization obj)
         {
             return obj.Id;
         }
 
         /// <summary>
-        /// Gets all groups which have n sub items/tenants
+        /// Gets all groups which have n sub items/organizations
         /// </summary>
-        /// <param name="count">Sub tenant count</param>
-        /// <returns>Enumerable of organization tenants</returns>
-        public IEnumerable<OrganizationTenant> GetGroupsBySubOrganizationCount(int count) => GetAllByColumn("SubOrganizationCount", count);
+        /// <param name="count">Sub organization count</param>
+        /// <returns>Enumerable of organizations</returns>
+        public IEnumerable<Organization> GetGroupsBySubOrganizationCount(int count) => GetAllByColumn("SubOrganizationCount", count);
 
         /// <summary>
         /// Gets the primary columns (Id)
@@ -45,7 +45,7 @@ namespace Simplic.Tenant.Data.DB
         public override string PrimaryKeyColumn => "Id";
 
         /// <summary>
-        /// Gets the tenant organization table (TenantOrganization)
+        /// Gets the organization organization table (Tenant_Organization)
         /// </summary>
         public override string TableName => "Tenant_Organization";
     }

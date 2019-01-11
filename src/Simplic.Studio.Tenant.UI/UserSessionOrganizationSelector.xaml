@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Simplic.Studio.Tenant.UI.UserSessionOrganizationSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:simplic="http://schemas.simplic-systems.com/2016/xaml/presentation"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <simplic:ComboBox x:Name="selectOrganizationComboBox" ItemsSource="{Binding Organizations}" SelectedItem="{Binding SelectedOrganization,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          TextSearchMode="Contains" IsTextSearchEnabled="True" DisplayMemberPath="Name" />
+    </Grid>
+</UserControl>

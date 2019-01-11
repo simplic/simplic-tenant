@@ -5,8 +5,8 @@ to store data of multiple organizations within a single database.
 
 The core elements are:
 
-* OrganizationTenant - Represents the tenant information of an organization
-* IOrganizationTenantService - Allows tenant operations
+* Organization - Represents the tenant information of an organization
+* IOrganizationService - Allows tenant operations
 
 ## Unit tests
 

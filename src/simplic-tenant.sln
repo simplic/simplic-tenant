@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplic.Tenant.UnitTest", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{6633D3E3-8804-49C9-8A60-F8D22C2D6CF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplic.Studio.Tenant.UI", "Simplic.Studio.Tenant.UI\Simplic.Studio.Tenant.UI.csproj", "{C514BF67-C266-4FAE-ABD5-66BB96DEB1BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{DEA9ECD0-8B9B-4727-95E9-2E9BD698EDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEA9ECD0-8B9B-4727-95E9-2E9BD698EDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEA9ECD0-8B9B-4727-95E9-2E9BD698EDB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C514BF67-C266-4FAE-ABD5-66BB96DEB1BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C514BF67-C266-4FAE-ABD5-66BB96DEB1BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C514BF67-C266-4FAE-ABD5-66BB96DEB1BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C514BF67-C266-4FAE-ABD5-66BB96DEB1BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
