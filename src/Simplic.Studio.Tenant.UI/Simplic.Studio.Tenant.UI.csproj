@@ -39,6 +39,9 @@
     <Reference Include="Simplic.Data, Version=1.5.118.1029, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Simplic.Data.1.5.118.1029\lib\net451\Simplic.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Simplic.Session, Version=6.2.319.1011, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simplic.Session.6.2.319.1011\lib\net451\Simplic.Session.dll</HintPath>
+    </Reference>
     <Reference Include="Simplic.UI">
       <HintPath>..\..\..\simplic-framework\src\Simplic.Main\bin\Debug\Simplic.UI.dll</HintPath>
       <Private>False</Private>
