@@ -99,7 +99,7 @@ namespace Simplic.Tenant.Service
         /// </summary>
         /// <param name="userId">Unique user id</param>
         /// <returns>Get all tenants that are enabled for the given user</returns>
-        public IEnumerable<Organization> GetByUserId(int userId) => organizationRepository.Get(GetByUserId);
+        public IEnumerable<Organization> GetByUserId(int userId) => organizationRepository.GetByUserId(userId);
 
         /// <summary>
         /// Get all organizations
