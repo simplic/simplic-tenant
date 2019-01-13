@@ -1,4 +1,5 @@
-﻿using Simplic.Cache;
+﻿using Dapper;
+using Simplic.Cache;
 using Simplic.Data.Sql;
 using Simplic.Sql;
 using System;
@@ -11,6 +12,8 @@ namespace Simplic.Tenant.Data.DB
     /// </summary>
     public class OrganizationRepository : SqlRepositoryBase<Guid, Organization>, IOrganizationRepository
     {
+        private readonly ISqlService sqlService;
+
         /// <summary>
         /// Initialize repository
         /// </summary>
@@ -20,6 +23,7 @@ namespace Simplic.Tenant.Data.DB
         public OrganizationRepository(ISqlService sqlService, ISqlColumnService sqlColumnService, ICacheService cacheService) : base(sqlService, sqlColumnService, cacheService)
         {
             UseCache = true;
+            this.sqlService = sqlService;
         }
 
         /// <summary>
@@ -30,6 +34,23 @@ namespace Simplic.Tenant.Data.DB
         public override Guid GetId(Organization obj)
         {
             return obj.Id;
+        }
+
+        /// <summary>
+        /// Get all assigned organizations
+        /// </summary>
+        /// <param name="userId">Unique user id</param>
+        /// <returns>Get all tenants that are enabled for the given user</returns>
+        public IEnumerable<Organization> GetByUserId(int userId)
+        {
+            return sqlService.OpenConnection((connection) => 
+            {
+                return connection.Query<Organization>($@"
+                        SELECT o.* FROM Tenant_Organization o
+                        JOIN Tenant_Organization_User t on t.TenantId = o.Id and t.UserId = :id
+                        ORDER BY o.Name
+                    ", new { id = userId });
+            });
         }
 
         /// <summary>

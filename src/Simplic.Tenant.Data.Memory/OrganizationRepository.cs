@@ -29,6 +29,17 @@ namespace Simplic.Tenant.Data.Memory
             return Delete(obj.Id);
         }
 
+
+        /// <summary>
+        /// Get all assigned organizations
+        /// </summary>
+        /// <param name="userId">Unique user id</param>
+        /// <returns>Get all tenants that are enabled for the given user</returns>
+        public IEnumerable<Organization> GetByUserId(int userId)
+        {
+            return organizations;
+        }
+
         /// <summary>
         /// Delete organization by id
         /// </summary>
