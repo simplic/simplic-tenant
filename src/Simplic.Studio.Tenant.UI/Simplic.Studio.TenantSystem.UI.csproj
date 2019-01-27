@@ -39,8 +39,8 @@
     <Reference Include="Simplic.Data, Version=1.5.118.1029, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Simplic.Data.1.5.118.1029\lib\net451\Simplic.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Simplic.Session, Version=6.2.319.1011, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Simplic.Session.6.2.319.1011\lib\net451\Simplic.Session.dll</HintPath>
+    <Reference Include="Simplic.Session, Version=6.3.19.127, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simplic.Session.6.3.19.127\lib\net451\Simplic.Session.dll</HintPath>
     </Reference>
     <Reference Include="Simplic.UI">
       <HintPath>..\..\..\simplic-framework\src\Simplic.Main\bin\Debug\Simplic.UI.dll</HintPath>
@@ -93,12 +93,12 @@
   <ItemGroup>
     <None Include="package.bat" />
     <None Include="packages.config" />
-    <None Include="Simplic.Studio.Tenant.UI.nuspec" />
+    <None Include="Simplic.Studio.TenantSystem.UI.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Simplic.Tenant\Simplic.Tenant.csproj">
+    <ProjectReference Include="..\Simplic.Tenant\Simplic.TenantSystem.csproj">
       <Project>{f5574f6d-f147-4421-9685-da978f7a3a86}</Project>
-      <Name>Simplic.Tenant</Name>
+      <Name>Simplic.TenantSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

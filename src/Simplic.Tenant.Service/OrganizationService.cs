@@ -1,23 +1,29 @@
-﻿using System;
+﻿using Simplic.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simplic.Tenant.Service
+namespace Simplic.TenantSystem.Service
 {
     /// <summary>
-    /// organization service implementation
+    /// Organization service implementation
     /// </summary>
     public class OrganizationService : IOrganizationService
     {
+        private const string ConfigurationName = "OrganizationMode";
+        private const string ConfigurationPluginName = "Tenant";
         private readonly IOrganizationRepository organizationRepository;
+        private readonly IConfigurationService configurationService;
 
         /// <summary>
         /// Initialize service
         /// </summary>
         /// <param name="organizationRepository">Repository instance</param>
-        public OrganizationService(IOrganizationRepository organizationRepository)
+        /// <param name="configurationService">Configuration service</param>
+        public OrganizationService(IOrganizationRepository organizationRepository, IConfigurationService configurationService)
         {
             this.organizationRepository = organizationRepository;
+            this.configurationService = configurationService;
         }
 
         /// <summary>
@@ -102,6 +108,13 @@ namespace Simplic.Tenant.Service
         public IEnumerable<Organization> GetByUserId(int userId) => organizationRepository.GetByUserId(userId);
 
         /// <summary>
+        /// Get all available organizations
+        /// </summary>
+        /// <param name="userId">Unique user id</param>
+        /// <returns>Enumerable of organizations</returns>
+        public IEnumerable<Organization> GetAvailableOrganizations(int userId) => GetByUserId(userId).Where(x => x.IsActive);
+
+        /// <summary>
         /// Get all organizations
         /// </summary>
         /// <returns>Enumerable of organizations</returns>
@@ -113,5 +126,14 @@ namespace Simplic.Tenant.Service
         /// <param name="obj">organization instance</param>
         /// <returns>True if successfuk</returns>
         public bool Save(Organization obj) => organizationRepository.Save(obj);
+
+        /// <summary>
+        /// Gets or sets the organization mode
+        /// </summary>
+        public OrganizationMode Mode
+        {
+            get => (OrganizationMode)configurationService.GetValue<int>(ConfigurationName, ConfigurationPluginName, "");
+            set => configurationService.SetValue<int>(ConfigurationName, ConfigurationPluginName, "", (int)value);
+        }
     }
 }

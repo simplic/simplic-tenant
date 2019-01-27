@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Simplic.Tenant.Data.Memory;
-using Simplic.Tenant.Service;
+using Simplic.TenantSystem.Data.Memory;
+using Simplic.TenantSystem.Service;
 using Unity;
 
-namespace Simplic.Tenant.UnitTest
+namespace Simplic.TenantSystem.UnitTest
 {
     [TestClass]
     public class GroupTest

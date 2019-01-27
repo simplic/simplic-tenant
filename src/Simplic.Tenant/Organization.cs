@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Simplic.Tenant
+namespace Simplic.TenantSystem
 {
     /// <summary>
     /// Represents an organization

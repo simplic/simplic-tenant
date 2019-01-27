@@ -7,8 +7,8 @@
     <ProjectGuid>{F5574F6D-F147-4421-9685-DA978F7A3A86}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simplic.Tenant</RootNamespace>
-    <AssemblyName>Simplic.Tenant</AssemblyName>
+    <RootNamespace>Simplic.TenantSystem</RootNamespace>
+    <AssemblyName>Simplic.TenantSystem</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -44,6 +44,7 @@
     <Compile Include="IOrganizationRepository.cs" />
     <Compile Include="IOrganizationService.cs" />
     <Compile Include="Organization.cs" />
+    <Compile Include="OrganizationMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="package.bat" />
-    <None Include="Simplic.Tenant.nuspec" />
+    <None Include="Simplic.TenantSystem.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

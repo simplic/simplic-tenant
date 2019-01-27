@@ -73,17 +73,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Simplic.Tenant.Data.Memory\Simplic.Tenant.Data.Memory.csproj">
+    <ProjectReference Include="..\Simplic.Tenant.Data.Memory\Simplic.TenantSystem.Data.Memory.csproj">
       <Project>{cfe17b9b-f438-48f5-a479-e96f92908884}</Project>
-      <Name>Simplic.Tenant.Data.Memory</Name>
+      <Name>Simplic.TenantSystem.Data.Memory</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Simplic.Tenant.Service\Simplic.Tenant.Service.csproj">
+    <ProjectReference Include="..\Simplic.Tenant.Service\Simplic.TenantSystem.Service.csproj">
       <Project>{348be8e9-7c3f-443e-be85-d9f08c7f39c7}</Project>
-      <Name>Simplic.Tenant.Service</Name>
+      <Name>Simplic.TenantSystem.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Simplic.Tenant\Simplic.Tenant.csproj">
+    <ProjectReference Include="..\Simplic.Tenant\Simplic.TenantSystem.csproj">
       <Project>{f5574f6d-f147-4421-9685-da978f7a3a86}</Project>
-      <Name>Simplic.Tenant</Name>
+      <Name>Simplic.TenantSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

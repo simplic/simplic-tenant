@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simplic.Tenant.Data.Memory
+namespace Simplic.TenantSystem.Data.Memory
 {
     /// <summary>
     /// Organization repository memory implementation

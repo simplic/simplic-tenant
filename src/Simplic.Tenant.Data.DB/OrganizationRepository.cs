@@ -5,7 +5,7 @@ using Simplic.Sql;
 using System;
 using System.Collections.Generic;
 
-namespace Simplic.Tenant.Data.DB
+namespace Simplic.TenantSystem.Data.DB
 {
     /// <summary>
     /// Organization repository with cache

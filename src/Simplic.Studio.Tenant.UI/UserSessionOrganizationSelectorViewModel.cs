@@ -1,11 +1,11 @@
 ﻿using CommonServiceLocator;
 using Simplic.Session;
-using Simplic.Tenant;
+using Simplic.TenantSystem;
 using Simplic.UI.MVC;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Simplic.Studio.Tenant.UI
+namespace Simplic.Studio.TenantSystem.UI
 {
     /// <summary>
     /// Selector viewmodel
@@ -19,13 +19,14 @@ namespace Simplic.Studio.Tenant.UI
         /// <summary>
         /// Initialize viewmodel
         /// </summary>
-        public UserSessionOrganizationSelectorViewModel()
+        /// <param name="userId">User id</param>
+        public UserSessionOrganizationSelectorViewModel(int userId)
         {
             organizationService = ServiceLocator.Current.GetInstance<IOrganizationService>();
             sessionService = ServiceLocator.Current.GetInstance<ISessionService>();
 
             // TODO: Only load organizations that are allowed for the current user
-            Organizations = new List<Organization>(organizationService.GetAll().Where(x => !x.IsGroup));
+            Organizations = new List<Organization>(organizationService.GetAvailableOrganizations(userId).Where(x => !x.IsGroup));
             selectedOrganization = Organizations.FirstOrDefault();
         }
 
@@ -45,7 +46,7 @@ namespace Simplic.Studio.Tenant.UI
                 selectedOrganization = value;
                 RaisePropertyChanged(nameof(SelectedOrganization));
 
-                sessionService.CurrentSession.Organizations= new List<Organization>
+                sessionService.CurrentSession.Organizations = new List<Organization>
                 {
                     selectedOrganization
                 };

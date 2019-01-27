@@ -6,11 +6,11 @@ using System.Windows.Markup;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Simplic.Studio.Tenant.UI")]
+[assembly: AssemblyTitle("Simplic.Studio.TenantSystem.UI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Simplic.Studio.Tenant.UI")]
+[assembly: AssemblyProduct("Simplic.Studio.TenantSystem.UI")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -24,9 +24,9 @@ using System.Windows.Markup;
 [assembly: Guid("c514bf67-c266-4fae-abd5-66bb96deb1bd")]
 
 
-[assembly: XmlnsDefinition("http://schemas.simplic-systems.com/2016/xaml/presentation", "Simplic.Studio.Tenant.UI")]
+[assembly: XmlnsDefinition("http://schemas.simplic-systems.com/2016/xaml/presentation", "Simplic.Studio.TenantSystem.UI")]
 
-[assembly: XmlnsDefinition("urn:simplic", "Simplic.Studio.Tenant.UI")]
+[assembly: XmlnsDefinition("urn:simplic", "Simplic.Studio.TenantSystem.UI")]
 
 
 // Version information for an assembly consists of the following four values:
@@ -39,5 +39,5 @@ using System.Windows.Markup;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.119.1011")]
-[assembly: AssemblyFileVersion("1.1.119.1011")]
+[assembly: AssemblyVersion("1.3.19.127")]
+[assembly: AssemblyFileVersion("1.3.19.127")]
