@@ -7,8 +7,8 @@
     <ProjectGuid>{C514BF67-C266-4FAE-ABD5-66BB96DEB1BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simplic.Studio.Tenant.UI</RootNamespace>
-    <AssemblyName>Simplic.Studio.Tenant.UI</AssemblyName>
+    <RootNamespace>Simplic.Studio.TenantSystem.UI</RootNamespace>
+    <AssemblyName>Simplic.Studio.TenantSystem.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
