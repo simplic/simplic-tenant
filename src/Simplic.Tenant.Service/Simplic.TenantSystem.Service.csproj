@@ -57,6 +57,9 @@
     <PackageReference Include="Simplic.Data">
       <Version>1.5.118.1029</Version>
     </PackageReference>
+    <PackageReference Include="Simplic.Session">
+      <Version>6.3.19.127</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="package.bat" />

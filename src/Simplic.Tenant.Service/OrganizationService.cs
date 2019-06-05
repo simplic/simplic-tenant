@@ -1,4 +1,5 @@
 ﻿using Simplic.Configuration;
+using Simplic.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,18 @@ namespace Simplic.TenantSystem.Service
         private const string ConfigurationPluginName = "Tenant";
         private readonly IOrganizationRepository organizationRepository;
         private readonly IConfigurationService configurationService;
+        private readonly ISessionService sessionService;
 
         /// <summary>
         /// Initialize service
         /// </summary>
         /// <param name="organizationRepository">Repository instance</param>
         /// <param name="configurationService">Configuration service</param>
-        public OrganizationService(IOrganizationRepository organizationRepository, IConfigurationService configurationService)
+        public OrganizationService(IOrganizationRepository organizationRepository, IConfigurationService configurationService, ISessionService sessionService)
         {
             this.organizationRepository = organizationRepository;
             this.configurationService = configurationService;
+            this.sessionService = sessionService;
         }
 
         /// <summary>
@@ -132,7 +135,12 @@ namespace Simplic.TenantSystem.Service
         /// </summary>
         public OrganizationMode Mode
         {
-            get => (OrganizationMode)configurationService.GetValue<int>(ConfigurationName, ConfigurationPluginName, "");
+            get
+            {
+                var userName = sessionService.CurrentSession.UserName;
+                return (OrganizationMode)configurationService.GetValue<int>(ConfigurationName, ConfigurationPluginName, userName);
+            }
+
             set => configurationService.SetValue<int>(ConfigurationName, ConfigurationPluginName, "", (int)value);
         }
     }
