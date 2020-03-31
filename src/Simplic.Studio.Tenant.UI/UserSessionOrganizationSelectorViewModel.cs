@@ -27,7 +27,7 @@ namespace Simplic.Studio.TenantSystem.UI
 
             // TODO: Only load organizations that are allowed for the current user
             Organizations = new List<Organization>(organizationService.GetAvailableOrganizations(userId).Where(x => !x.IsGroup));
-            selectedOrganization = Organizations.FirstOrDefault();
+            SelectedOrganization = Organizations.FirstOrDefault();
         }
 
         /// <summary>
