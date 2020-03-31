@@ -1,5 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Simplic.Configuration;
+using Simplic.Session;
+using Simplic.Tenant.UnitTest.Mocking;
 using Simplic.TenantSystem.Data.Memory;
 using Simplic.TenantSystem.Service;
 using Unity;
@@ -14,6 +17,9 @@ namespace Simplic.TenantSystem.UnitTest
         public GroupTest()
         {
             unityContainer = new UnityContainer();
+            unityContainer.RegisterType<ISessionService, SessionMock>();
+            unityContainer.RegisterType<IConfigurationService, ConfigurationMock>();
+
             unityContainer.RegisterType<IOrganizationRepository, OrganizationRepository>();
             unityContainer.RegisterType<IOrganizationService, OrganizationService>();
         }
