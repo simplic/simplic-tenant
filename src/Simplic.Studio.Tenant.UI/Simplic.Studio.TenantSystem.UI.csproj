@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simplic.Studio.TenantSystem.UI</RootNamespace>
     <AssemblyName>Simplic.Studio.TenantSystem.UI</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,21 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net45\CommonServiceLocator.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Simplic.Data, Version=1.5.118.1029, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Simplic.Data.1.5.118.1029\lib\net451\Simplic.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Simplic.Session, Version=6.3.19.127, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Simplic.Session.6.3.19.127\lib\net451\Simplic.Session.dll</HintPath>
-    </Reference>
-    <Reference Include="Simplic.UI">
-      <HintPath>..\..\..\simplic-framework\src\Simplic.Main\bin\Debug\Simplic.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
@@ -55,26 +43,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.Windows.Controls, Version=2018.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\simplic-framework\dependencies\Assemblies\Telerik.Windows.Controls.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Telerik.Windows.Controls.Data, Version=2018.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\simplic-framework\dependencies\Assemblies\Telerik.Windows.Controls.Data.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Telerik.Windows.Controls.Input, Version=2018.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\simplic-framework\dependencies\Assemblies\Telerik.Windows.Controls.Input.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Telerik.Windows.Data, Version=2018.3.1016.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\simplic-framework\dependencies\Assemblies\Telerik.Windows.Data.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -91,15 +59,33 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="package.bat" />
-    <None Include="packages.config" />
-    <None Include="Simplic.Studio.TenantSystem.UI.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Simplic.Tenant\Simplic.TenantSystem.csproj">
       <Project>{f5574f6d-f147-4421-9685-da978f7a3a86}</Project>
       <Name>Simplic.TenantSystem</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator">
+      <Version>2.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Simplic.Data">
+      <Version>1.5.118.1029</Version>
+    </PackageReference>
+    <PackageReference Include="Simplic.Session">
+      <Version>6.3.19.127</Version>
+    </PackageReference>
+    <PackageReference Include="Simplic.UI">
+      <Version>7.2.120.329</Version>
+    </PackageReference>
+    <PackageReference Include="Telerik.Windows.Controls.for.Wpf.Xaml">
+      <Version>2020.1.218</Version>
+    </PackageReference>
+    <PackageReference Include="Telerik.Windows.Controls.Input.for.Wpf.Xaml">
+      <Version>2020.1.218</Version>
+    </PackageReference>
+    <PackageReference Include="Telerik.Windows.Controls.Navigation.for.Wpf.Xaml">
+      <Version>2020.1.218</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
