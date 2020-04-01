@@ -39,6 +39,11 @@ namespace Simplic.TenantSystem
         public IList<Guid> SubOrganizations { get; set; } = new List<Guid>();
 
         /// <summary>
+        /// Gets or sets the cloud organization id
+        /// </summary>
+        public Guid? CloudOrganizationId { get; set; }
+
+        /// <summary>
         /// Gets or sets whether the organization is a group
         /// </summary>
         public bool IsGroup { get => SubOrganizationCount > 0; }
