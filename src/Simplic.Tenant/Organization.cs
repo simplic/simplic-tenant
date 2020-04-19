@@ -44,6 +44,11 @@ namespace Simplic.TenantSystem
         public Guid? CloudOrganizationId { get; set; }
 
         /// <summary>
+        /// Gets or sets the cloud data hub queue id
+        /// </summary>
+        public Guid? CloudQueueIdId { get; set; }
+
+        /// <summary>
         /// Gets or sets whether the organization is a group
         /// </summary>
         public bool IsGroup { get => SubOrganizationCount > 0; }
