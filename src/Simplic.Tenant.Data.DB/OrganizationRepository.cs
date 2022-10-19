@@ -45,7 +45,7 @@ namespace Simplic.TenantSystem.Data.DB
         {
             return sqlService.OpenConnection((connection) => 
             {
-                return connection.Query<Organization>($@"
+                return connection.Query<Organization>(@"
                         SELECT o.* FROM Tenant_Organization o
                         JOIN Tenant_Organization_User t on t.TenantId = o.Id and t.UserId = :id
                         ORDER BY o.Name
