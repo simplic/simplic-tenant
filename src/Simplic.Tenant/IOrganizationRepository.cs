@@ -20,7 +20,14 @@ namespace Simplic.TenantSystem
         /// Get all assigned organizations
         /// </summary>
         /// <param name="userId">Unique user id</param>
-        /// <returns>Get all tenants that are enabled for the given user</returns>
+        /// <returns>All tenants that are enabled for the given user</returns>
         IEnumerable<Organization> GetByUserId(int userId);
+
+        /// <summary>
+        /// Get an organization by its name
+        /// </summary>
+        /// <param name="userId">Unique user id</param>
+        /// <returns>The tenant with the given name</returns>
+        Organization GetByName(string name);
     }
 }

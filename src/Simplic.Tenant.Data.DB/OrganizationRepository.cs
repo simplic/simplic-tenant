@@ -60,6 +60,9 @@ namespace Simplic.TenantSystem.Data.DB
         /// <returns>Enumerable of organizations</returns>
         public IEnumerable<Organization> GetGroupsBySubOrganizationCount(int count) => GetAllByColumn("SubOrganizationCount", count);
 
+        /// <inheritdoc/>
+        public Organization GetByName(string name) => GetByColumn("Name", name);
+
         /// <summary>
         /// Gets the primary columns (Id)
         /// </summary>
