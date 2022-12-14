@@ -54,6 +54,21 @@ namespace Simplic.TenantSystem
         public bool IsGroup { get => SubOrganizationCount > 0; }
 
         /// <summary>
+        /// Gets or sets the App ID for OAuth authentication
+        /// </summary>
+        public string OAuthAppId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Tenant ID for OAuth authentication
+        /// </summary>
+        public string OAuthTenantId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Redirect URI for OAuth authentication
+        /// </summary>
+        public string OAuthRedirect { get; set; }
+
+        /// <summary>
         /// Gets the hash code of the id
         /// </summary>
         /// <returns>Hashcode</returns>

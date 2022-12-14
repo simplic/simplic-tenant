@@ -130,6 +130,8 @@ namespace Simplic.TenantSystem.Service
         /// <returns>True if successfuk</returns>
         public bool Save(Organization obj) => organizationRepository.Save(obj);
 
+        public Organization GetByName(string name) => organizationRepository.GetByName(name);
+
         /// <summary>
         /// Gets or sets the organization mode
         /// </summary>
