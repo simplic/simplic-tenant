@@ -64,7 +64,7 @@ namespace Simplic.TenantSystem
         public string OAuthTenantId { get; set; }
 
         /// <summary>
-        /// Gets or sets the Reditect URI for OAuth authentication
+        /// Gets or sets the Redirect URI for OAuth authentication
         /// </summary>
         public string OAuthRedirect { get; set; }
 
