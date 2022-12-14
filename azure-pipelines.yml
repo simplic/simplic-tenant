@@ -76,6 +76,7 @@ steps:
 
   - task: NuGetCommand@2
     inputs:
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
       command: "push"
       packagesToPush: "$(Build.ArtifactStagingDirectory)/Simplic.*.nupkg;!**/Simplic.*.symbols.nupkg"
       nuGetFeedType: "internal"
