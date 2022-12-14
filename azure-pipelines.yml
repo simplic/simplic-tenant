@@ -52,7 +52,7 @@ steps:
           git_user: $(git_user)
           git_token: $(git_token)
           branch_name: ${{ replace(variables['Build.SourceBranch'], 'refs/heads/', '') }}
-
+ 
   - task: MSBuild@1
     inputs:
       solution: "**/*.sln"
