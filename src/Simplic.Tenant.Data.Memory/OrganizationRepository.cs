@@ -86,6 +86,11 @@ namespace Simplic.TenantSystem.Data.Memory
             return organizations.Where(x => x.SubOrganizationCount == count);
         }
 
+        public Organization GetByName(string name)
+        {
+            return organizations.Where(x => x.Name == name).First();
+        }
+
         /// <summary>
         /// Save existing or new organization
         /// </summary>

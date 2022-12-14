@@ -45,7 +45,7 @@ namespace Simplic.TenantSystem.Data.DB
         {
             return sqlService.OpenConnection((connection) => 
             {
-                return connection.Query<Organization>($@"
+                return connection.Query<Organization>(@"
                         SELECT o.* FROM Tenant_Organization o
                         JOIN Tenant_Organization_User t on t.TenantId = o.Id and t.UserId = :id
                         ORDER BY o.Name
@@ -59,6 +59,9 @@ namespace Simplic.TenantSystem.Data.DB
         /// <param name="count">Sub organization count</param>
         /// <returns>Enumerable of organizations</returns>
         public IEnumerable<Organization> GetGroupsBySubOrganizationCount(int count) => GetAllByColumn("SubOrganizationCount", count);
+
+        /// <inheritdoc/>
+        public Organization GetByName(string name) => GetByColumn("Name", name);
 
         /// <summary>
         /// Gets the primary columns (Id)
