@@ -19,18 +19,10 @@ namespace Simplic.Studio.TenantSystem.UI
         private bool isCreate;
 
         /// <summary>
-        /// Default constructor for the view model
-        /// </summary>
-        public OrganizationViewModel()
-        {
-            this.IsCreate = true;
-        }
-
-        /// <summary>
         /// Copy constructor
         /// </summary>
         /// <param name="org"></param>
-        public OrganizationViewModel(Organization org) : this()
+        public OrganizationViewModel(Organization org)
         {
             this.model = org;
             this.IsCreate = false;
