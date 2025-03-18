@@ -12,7 +12,6 @@ namespace Simplic.Studio.TenantSystem.UI
     public class OrganizationViewModel : ViewModelBase
     {
         private IOrganizationService organizationService = CommonServiceLocator.ServiceLocator.Current.GetInstance<IOrganizationService>();
-        private ObservableCollection<Organization> organizations;
         public int subOrganizationCount;
         public IList<Guid> subOrganizations;
         public Guid? cloudOrganizationId;
@@ -24,66 +23,17 @@ namespace Simplic.Studio.TenantSystem.UI
         /// </summary>
         public OrganizationViewModel()
         {
-            Organizations = new ObservableCollection<Organization>();
-
-            foreach (var organization in organizationService.GetAll())
-            {
-                Organizations.Add(organization);
-            }
-
             this.IsCreate = true;
-        }
-
-        /// <summary>
-        /// Constructor for the view model
-        /// </summary>
-        /// <param name="id">Tenant ID</param>
-        /// <param name="name">Tenant name</param>
-        /// <param name="matchCode">Tenant match code</param>
-        /// <param name="subOrganizationCount">Tenant suborganizations count</param>
-        /// <param name="subOrganizations">Tenant suborganizations IDs collection</param>
-        /// <param name="cloudOrganizationId">Tenant cloud organization id</param>
-        /// <param name="isActive">Tenant active flag</param>
-        /// <param name="isGroup">Tenant group flag</param>
-        public OrganizationViewModel(Guid id, string name, string matchCode, int subOrganizationCount,
-            IList<Guid> subOrganizations, Guid? cloudOrganizationId, bool isActive, bool isGroup) : this()
-        {
-            if (this.Model == null)
-            {
-                this.model = new Organization
-                {
-                    Id = id,
-                    Name = name,
-                    MatchCode = matchCode,
-                    IsActive = isActive,
-                    SubOrganizations = subOrganizations,
-                    CloudOrganizationId = cloudOrganizationId
-                };
-
-                IsCreate = true;
-            }
-
         }
 
         /// <summary>
         /// Copy constructor
         /// </summary>
         /// <param name="org"></param>
-        public OrganizationViewModel(Organization org) : this(org.Id, org.Name, org.MatchCode, org.SubOrganizationCount,
-            org.SubOrganizations, org.CloudOrganizationId, org.IsActive, org.IsGroup)
+        public OrganizationViewModel(Organization org) : this()
         {
             this.model = org;
             this.IsCreate = false;
-        }
-
-        /// <summary>
-        /// Gets all user assigned organizations.
-        /// </summary>
-        /// <param name="user">Selected user.</param>
-        /// <returns>List of all user assigned organizations.</returns>
-        public IEnumerable<Organization> GetUserOrganizations(User.User user)
-        {
-            return organizationService.GetByUserId(user.Ident);
         }
 
         /// <summary>
@@ -96,20 +46,11 @@ namespace Simplic.Studio.TenantSystem.UI
             {
                 if (IsCreate)
                 {
-                    var newTenant = new Organization
+                    if (organizationService.Save(Model))
                     {
-                        Id = Model.Id,
-                        Name = Model.Name,
-                        MatchCode = Model.MatchCode,
-                        IsActive = Model.IsActive,
-                        SubOrganizations = Model.SubOrganizations,
-                        CloudOrganizationId = Model.CloudOrganizationId
-                    };
-
-                    IsCreate = false;
-
-                    if (organizationService.Save(newTenant))
+                        IsCreate = false;
                         return true;
+                    }
                 }
 
                 if (organizationService.Save(Model))
@@ -219,21 +160,6 @@ namespace Simplic.Studio.TenantSystem.UI
             set
             {
                 PropertySetter(value, newValue => { isCreate = newValue; });
-            }
-        }
-
-        /// <summary>
-        /// Contains all avialable organizations.
-        /// </summary>
-        public ObservableCollection<Organization> Organizations
-        {
-            get => organizations;
-            set
-            {
-                if (!Equals(value, organizations))
-                {
-                    PropertySetter(value, newValue => { organizations = newValue; });
-                }
             }
         }
 

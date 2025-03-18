@@ -110,15 +110,6 @@
     <PackageReference Include="Simplic.UI">
       <Version>7.2.120.329</Version>
     </PackageReference>
-    <PackageReference Include="Simplic.User">
-      <Version>9.0.422.426</Version>
-    </PackageReference>
-    <PackageReference Include="Simplic.User.Service">
-      <Version>9.0.322.426</Version>
-    </PackageReference>
-    <PackageReference Include="Simplic.User.UI">
-      <Version>9.0.322.426</Version>
-    </PackageReference>
     <PackageReference Include="Telerik.Windows.Controls.for.Wpf.Xaml">
       <Version>2020.1.218</Version>
     </PackageReference>
